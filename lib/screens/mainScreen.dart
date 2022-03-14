@@ -1,5 +1,6 @@
 import 'package:app_themes/utils/expandablefab.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -7,7 +8,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreen extends State<MainScreen> {
-  static const _actionTitles = ['Create Post', 'Upload Photo', 'Upload Video'];
+  static const _actionTitles = ['Go to home', 'Go to Twitter', 'Show news'];
   void _showAction(BuildContext context, int index) {
     showDialog<void>(
       context: context,
@@ -31,19 +32,28 @@ class _MainScreen extends State<MainScreen> {
       appBar: AppBar(title: Text("test")),
       body: SingleChildScrollView(),
       floatingActionButton: ExpandableFab(
-        distance: 112.0,
+        distance: 100.0,
         children: [
           ActionButton(
             onPressed: () => _showAction(context, 0),
-            icon: const Icon(Icons.format_size),
+            icon: const FaIcon(
+              FontAwesomeIcons.home,
+              color: Colors.white,
+            ),
           ),
           ActionButton(
             onPressed: () => _showAction(context, 1),
-            icon: const Icon(Icons.insert_photo),
+            icon: const FaIcon(
+              FontAwesomeIcons.twitter,
+              color: Colors.white,
+            ),
           ),
           ActionButton(
             onPressed: () => _showAction(context, 2),
-            icon: const Icon(Icons.videocam),
+            icon: const FaIcon(
+              FontAwesomeIcons.newspaper,
+              color: Colors.white,
+            ),
           ),
         ],
       ),
